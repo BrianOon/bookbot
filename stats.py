@@ -4,21 +4,21 @@ def get_book_text(path_to_file):
 
     return file_contents
 
-def get_num_words():
-    print(f"Found {len(split_words())} total words")
+def get_num_words(path_to_file):
+    print(f"Found {len(split_words(path_to_file))} total words")
 
-def split_words():
-    text = get_book_text("books/frankenstein.txt")
+def split_words(path_to_file):
+    text = get_book_text(path_to_file)
     return text.split()
 
-def count_characters():
+def count_characters(path_to_file):
     from collections import Counter
 
-    string = " ".join(split_words()).lower()
+    string = " ".join(split_words(path_to_file)).lower()
 
     return Counter(string)
 
-def sorted_characters():
-    char_count = count_characters()
+def sorted_characters(path_to_file):
+    char_count = count_characters(path_to_file)
     
     return dict(sorted(char_count.items(), key=lambda x: x[1], reverse=True))
